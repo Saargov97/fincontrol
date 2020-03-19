@@ -15,7 +15,7 @@ public class BancoDados {
         String nomeDriver = "org.postgresql.Driver";
         String localBancoDados = "jdbc:postgresql://localhost:5432/fincontrol";
         String usuario = "fincontrol";
-        String senha = "fincontrol";
+        String senha = "fincontrl";
 
         try {
             Class.forName(nomeDriver).newInstance();

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Novo Cadastro</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <style>
@@ -23,19 +23,24 @@
 <body>
     <div class="container">
         <div class="row">
-            <form class=" center border p-5 shadow-sm">
+            <form action="cadastro_processa.jsp" method="post" class=" center border p-5 shadow-sm">
                 <div class="form-group">                  
-                    <label for="exampleInputEmail1">Nome</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <label for="Nome">Nome</label>
+                    <input type="text" class="form-control" name="nom_identificacao"">
+                <div class="form-group">  
                 <div class="form-group">                  
-                    <label for="exampleInputEmail1">Email/Login</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <label for="Usuario">Usuário</label>
+                    <input type="text" class="form-control" name="nom_usuario"">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" name="des_email" aria-describedby="emailHelp">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Senha</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
+                    <input type="password" class="form-control" name="des_senha" id="exampleInputPassword1">
                 </div>
                 <button type="submit" class="btn btn-primary">Cadastrar</button>
+                <a href="lista.jsp"><button type="button" class="btn btn-danger">Cancelar</button></a>
             </form>
         </div>
     </div>
