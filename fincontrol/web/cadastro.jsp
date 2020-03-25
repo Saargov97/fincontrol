@@ -26,18 +26,18 @@
             <form action="cadastro_processa.jsp" method="post" class=" center border p-5 shadow-sm">
                 <div class="form-group">                  
                     <label for="Nome">Nome</label>
-                    <input type="text" class="form-control" name="nom_identificacao"">
+                    <input type="text" class="form-control" name="nom_identificacao" required="required">
                 <div class="form-group">  
                 <div class="form-group">                  
                     <label for="Usuario">Usuário</label>
-                    <input type="text" class="form-control" name="nom_usuario"">
+                    <input type="text" class="form-control" name="nom_usuario" required="required">
                 <div class="form-group">
                     <label for="exampleInputEmail1">Email</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" name="des_email" aria-describedby="emailHelp">
+                    <input type="email" class="form-control" id="exampleInputEmail1" name="des_email" aria-describedby="emailHelp" required="required">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Senha</label>
-                    <input type="password" class="form-control" name="des_senha" id="exampleInputPassword1">
+                    <input type="password" class="form-control" name="des_senha" id="exampleInputPassword1" required="required">
                 </div>
                 <button type="submit" class="btn btn-primary">Cadastrar</button>
                 <a href="lista.jsp"><button type="button" class="btn btn-danger">Cancelar</button></a>

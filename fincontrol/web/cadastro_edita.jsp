@@ -27,15 +27,15 @@
                     <input type="hidden" name="cod_usuario" value="<%=request.getParameter("cod_usuario")%>" />
                     <div class="form-group">                  
                         <label for="Nome">Nome</label>
-                        <input type="text" class="form-control" name="nom_identificacao" value="<%=request.getParameter("nom_identificacao")%>" />
+                        <input type="text" class="form-control" name="nom_identificacao" value="<%=request.getParameter("nom_identificacao")%>" required="required"/>
                     </div>
                     <div class="form-group">                   
                         <label for="Usuario">Usuário</label>
-                        <input type="text" class="form-control" name="nom_usuario" value="<%=request.getParameter("nom_usuario")%>" />
+                        <input type="text" class="form-control" name="nom_usuario" value="<%=request.getParameter("nom_usuario")%>" required="required"/>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Email</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" name="des_email" aria-describedby="emailHelp" value="<%=request.getParameter("des_email")%>" />
+                        <input type="email" class="form-control" id="exampleInputEmail1" name="des_email" aria-describedby="emailHelp" value="<%=request.getParameter("des_email")%>" required="required"/>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Senha</label>
