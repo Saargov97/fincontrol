@@ -9,10 +9,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%
-    BancoDados bd = new BancoDados();
-    Connection conexao = bd.getConexao();
-
-    Statement st = conexao.createStatement();
+    ConexaoBD conexao = new ConexaoBD();
+  
+    Statement st = ConexaoBD.getInstance().getConnection().createStatement();;
 
     String oper = request.getParameter("oper");
     String codigo = request.getParameter("cod");

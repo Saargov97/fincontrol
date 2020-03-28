@@ -1,18 +1,11 @@
-<%-- 
-    Document   : validaLogin
-    Created on : 11/03/2020, 12:10:17
-    Author     : rafaelsiebeneichler
---%>
-
 <%@page import="java.sql.*" %>
 <%@page import="database.*" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%
-    BancoDados bd = new BancoDados();
-    Connection conexao = bd.getConexao();
-
-    Statement st = conexao.createStatement();
+    ConexaoBD conexao = new ConexaoBD();
+  
+    Statement st = ConexaoBD.getInstance().getConnection().createStatement();
 
     String login = request.getParameter("login");
     String senha = request.getParameter("senha");

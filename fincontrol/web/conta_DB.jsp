@@ -9,11 +9,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%
-    BancoDados bd = new BancoDados();
-    Connection conexao = bd.getConexao();
-
-    Statement st = conexao.createStatement();
-
+    ConexaoBD conexao = new ConexaoBD();
+    Statement st = ConexaoBD.getInstance().getConnection().createStatement();
+    
     String oper = request.getParameter("oper");
     String seq_conta = request.getParameter("seq");
     String seq_banco = request.getParameter("banco");
@@ -33,7 +31,7 @@
             seq_conta = "1";
         }
         st.execute("INSERT INTO conta_corrente (seq_conta,seq_banco,cod_agencia,num_cc,ind_tipo_cc,cod_usuario,ind_ativo) "
-                + " VALUES (" + seq_conta + "," + seq_banco + "," + cod_agencia + ",'" + num_cc + "'," + ind_tipo_cc + ",3,'S')");
+                + " VALUES (" + seq_conta + "," + seq_banco + "," + cod_agencia + ",'" + num_cc + "'," + ind_tipo_cc + ",8,'S')");
     } else if (oper.equals("E")) {
         st.execute("UPDATE conta_corrente SET ind_ativo ='N' WHERE seq_conta=" + seq_conta + "");
     }

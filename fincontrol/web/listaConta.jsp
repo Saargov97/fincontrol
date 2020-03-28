@@ -5,7 +5,7 @@
 --%>
 
 <%@page import="java.sql.*"%>
-<%@page import="database.BancoDados"%>
+<%@page import="database.*"%>
 <%@page import="support.Utils"%>
 
 <!DOCTYPE html>
@@ -54,9 +54,8 @@
                     </div>
                     <ul class="list-group">
                         <%
-                            BancoDados bd = new BancoDados();
-                            Connection conexao = bd.getConexao();
-                            Statement st = conexao.createStatement();
+                            ConexaoBD conexao = new ConexaoBD();
+                            Statement st = ConexaoBD.getInstance().getConnection().createStatement();
                             ResultSet rs = st.executeQuery(""
                                     + " SELECT * FROM conta_corrente C "
                                     + " INNER JOIN banco B ON (B.seq_banco = C.seq_banco) "                                    
