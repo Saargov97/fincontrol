@@ -18,7 +18,6 @@ public class ConexaoBD {
             String dburl = "jdbc:postgresql://localhost:5432/fincontrol";
             String dbuser = "postgres";
             String dbsenha = "postgres";
-            System.out.println("teste: " + dburl);
 
             // Carrega Driver do Banco de Dados
             Class.forName(dbdriver);
