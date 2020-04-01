@@ -1,29 +1,29 @@
-<%@page import="java.io.*,java.sql.*" %>
+<%@page import="java.io.*" %>
+<%@page import="java.sql.*"%>
 <%@page import="database.*"%>
-<%@page language="java" %>
+<%@page language="java"%>
+<%@page import="java.util.Iterator"%>
+<%@page import="java.util.List"%>
+<%@page import="javax.servlet.http.*"%>
+<%@page import="org.apache.commons.fileupload.*"%>
+<%@page import="org.apache.commons.fileupload.disk.*"%>
+<%@page import="org.apache.commons.fileupload.servlet.*"%>
+<%@page import="org.apache.commons.io.output.*"%>
 
-<%@page import = "java.io.*,java.util.*, javax.servlet.*" %>
-<%@page import = "javax.servlet.http.*" %>
-<%@page import = "org.apache.commons.fileupload.*" %>
-<%@page import = "org.apache.commons.fileupload.disk.*" %>
-<%@page import = "org.apache.commons.fileupload.servlet.*" %>
-<%@page import = "org.apache.commons.io.output.*" %>
-
-<%    
-  
+<%
     File file;
     final int MAX_FILE_SIZE = 5000 * 1024;                 // Maior arquivo permitido
     final int MAX_MEMO_SIZE = 5000 * 1024;                 // Reseva de memoria para manter o arquivo
     final String OUT_FILE_DIR = "C:\\temp\\tempo";         // Diretório temporário
-    
-    ServletContext context = pageContext.getServletContext();
-    String filePath = context.getInitParameter("file-upload");
+
+    //ServletContext context = pageContext.getServletContext();
+    String filePath = "C:\\temp";//context.getInitParameter("file-upload");
 
     // Qual o tipo do form ???
     String contentType = request.getContentType();
 
     if ((contentType.indexOf("multipart/form-data") >= 0)) {
-        
+
         DiskFileItemFactory factory = new DiskFileItemFactory();
         factory.setSizeThreshold(MAX_MEMO_SIZE);
         factory.setRepository(new File(OUT_FILE_DIR));
@@ -77,4 +77,8 @@
         out.println("</body>");
         out.println("</html>");
     }
+    
+    
+
+    response.sendRedirect("visualizarUpload.jsp");
 %>
