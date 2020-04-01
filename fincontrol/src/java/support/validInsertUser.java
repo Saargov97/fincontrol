@@ -5,9 +5,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class validaInsercao {
+public class validInsertUser {
 
-    public static boolean validaInsercao(String nom_usuario, String des_email) throws SQLException {
+    public static boolean validInsert(String nom_usuario, String des_email) throws SQLException {
 
         ConexaoBD conexao = new ConexaoBD();
         Statement st = ConexaoBD.getInstance().getConnection().createStatement();
