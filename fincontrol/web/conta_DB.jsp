@@ -5,35 +5,27 @@
 --%>
 
 <%@page import="java.sql.*" %>
-<%@page import="database.*" %>
+<%@page import="database.ContaCorrenteDB" %>
+<%@page import="entity.ContaCorrente" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%
-    ConexaoBD conexao = new ConexaoBD();
-    Statement st = ConexaoBD.getInstance().getConnection().createStatement();
-    
-    String oper = request.getParameter("oper");
-    String seq_conta = request.getParameter("seq");
-    String seq_banco = request.getParameter("banco");
-    String cod_agencia = request.getParameter("agencia");
-    String num_cc = request.getParameter("conta");
-    String ind_tipo_cc = request.getParameter("tipo");
+    ContaCorrenteDB regra = new ContaCorrenteDB();
+    ContaCorrente cc = new ContaCorrente();
 
+    String oper = request.getParameter("oper");
+    cc.setSeq_conta(request.getParameter("seq"));
+    cc.setSeq_banco(request.getParameter("banco"));
+    cc.setCod_agencia(request.getParameter("agencia"));
+    cc.setNum_cc(request.getParameter("conta"));
+    cc.setInd_tipo_cc(request.getParameter("tipo"));
+    
     if (oper.equals("A")) {
-        st.execute("UPDATE conta_corrente "
-                + " SET seq_banco=" + seq_banco + ",cod_agencia=" + cod_agencia + ",num_cc=" + num_cc + ",ind_tipo_cc=" + ind_tipo_cc 
-                + " WHERE seq_conta=" + seq_conta + "");
+        regra.Alterar(cc);
     } else if (oper.equals("I")) {
-        ResultSet rs = st.executeQuery("SELECT COALESCE(MAX(seq_conta), 0) + 1 seq FROM conta_corrente");
-        if (rs.next()) {
-            seq_conta = rs.getString("seq");
-        } else {
-            seq_conta = "1";
-        }
-        st.execute("INSERT INTO conta_corrente (seq_conta,seq_banco,cod_agencia,num_cc,ind_tipo_cc,cod_usuario,ind_ativo) "
-                + " VALUES (" + seq_conta + "," + seq_banco + "," + cod_agencia + ",'" + num_cc + "'," + ind_tipo_cc + ",8,'S')");
+        regra.Inserir(cc);
     } else if (oper.equals("E")) {
-        st.execute("UPDATE conta_corrente SET ind_ativo ='N' WHERE seq_conta=" + seq_conta + "");
+        regra.Excluir(cc);
     }
 
     response.sendRedirect("listaConta.jsp");

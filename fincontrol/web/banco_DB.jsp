@@ -5,31 +5,25 @@
 --%>
 
 <%@page import="java.sql.*" %>
-<%@page import="database.*" %>
+<%@page import="database.BancoDB" %>
+<%@page import="entity.Banco" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%
-    ConexaoBD conexao = new ConexaoBD();
-    Statement st = ConexaoBD.getInstance().getConnection().createStatement();
+    BancoDB regra = new BancoDB();
+    Banco b = new Banco();
 
     String oper = request.getParameter("oper");
-    String seq = request.getParameter("seq");
-    String nome = request.getParameter("nome");
-    String codigo = request.getParameter("cod");
+    b.setSeq_banco(request.getParameter("seq"));
+    b.setNom_banco(request.getParameter("nome"));
+    b.setCod_banco(request.getParameter("cod"));
 
     if (oper.equals("A")) {
-        st.execute("UPDATE banco SET nom_banco='" + nome + "',cod_banco=" + codigo + " WHERE seq_banco=" + seq + "");
+        regra.Alterar(b);
     } else if (oper.equals("I")) {
-        ResultSet rs = st.executeQuery("SELECT COALESCE(MAX(seq_banco), 0) + 1 seq FROM banco");
-        if (rs.next()) {
-            seq = rs.getString("seq");
-        } else {
-            seq = "1";
-        }
-        st.execute("INSERT INTO banco (seq_banco,nom_banco,cod_banco,ind_ativo) "
-                + " VALUES (" + seq + ",'" + nome + "'," + codigo + ",'S')");
+        regra.Inserir(b);
     } else if (oper.equals("E")) {
-        st.execute("UPDATE banco SET ind_ativo ='N' WHERE seq_banco=" + seq + "");
+        regra.Excluir(b);
     }
 
     response.sendRedirect("listaBanco.jsp");
