@@ -1,9 +1,3 @@
-<%-- 
-    Document   : usuario_DB
-    Created on : 11/03/2020, 08:55:26
-    Author     : rafaelsiebeneichler
---%>
-
 <%@page import="java.sql.*" %>
 <%@page import="database.*" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -15,10 +9,10 @@
 
     String oper = request.getParameter("oper");
     String codigo = request.getParameter("cod");
-    String login = request.getParameter("login");
-    String nome = request.getParameter("nome");
-    String email = request.getParameter("email");
-    String senha = request.getParameter("senha");
+    String login = request.getParameter("nom_usuario");
+    String nome = request.getParameter("nom_identificacao");
+    String email = request.getParameter("des_email");
+    String senha = request.getParameter("des_senha");
 
     if (oper.equals("A")) {
         st.execute("UPDATE usuario SET nom_usuario='" + login + "',nom_identificacao='" + nome + "',des_email='" + email + "' WHERE cod_usuario=" + codigo + "");

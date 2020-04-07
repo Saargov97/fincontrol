@@ -7,10 +7,10 @@
   
     Statement st = ConexaoBD.getInstance().getConnection().createStatement();
 
-    String login = request.getParameter("login");
-    String senha = request.getParameter("senha");
+    String login = request.getParameter("nom_usuario");
+    String senha = request.getParameter("des_senha");
 
-    ResultSet rs = st.executeQuery("SELECT 1 FROM usuario WHERE nom_usuario = '" + login + "' AND des_senha = MD5('" + senha + "')");
+    ResultSet rs = st.executeQuery("SELECT * FROM usuario WHERE nom_usuario = '" + login + "' AND des_senha = MD5('" + senha + "')");
     if (rs.next()) {
         session.setAttribute("Login", login);
         response.sendRedirect("main.jsp");

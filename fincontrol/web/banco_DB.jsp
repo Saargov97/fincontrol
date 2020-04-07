@@ -1,9 +1,3 @@
-<%-- 
-    Document   : banco_DB
-    Created on : 26/03/2020, 17:18:54
-    Author     : Rafa_
---%>
-
 <%@page import="java.sql.*" %>
 <%@page import="database.BancoDB" %>
 <%@page import="entity.Banco" %>
@@ -13,10 +7,13 @@
     BancoDB regra = new BancoDB();
     Banco b = new Banco();
 
+    System.out.println("CODIGO: "+request.getParameter("cod_banco"));
+    System.out.println("NOME: "+request.getParameter("nom_banco"));
+    
     String oper = request.getParameter("oper");
     b.setSeq_banco(request.getParameter("seq"));
-    b.setNom_banco(request.getParameter("nome"));
-    b.setCod_banco(request.getParameter("cod"));
+    b.setNom_banco(request.getParameter("nom_banco"));
+    b.setCod_banco(request.getParameter("cod_banco"));
 
     if (oper.equals("A")) {
         regra.Alterar(b);

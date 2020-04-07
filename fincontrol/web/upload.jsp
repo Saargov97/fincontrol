@@ -2,6 +2,7 @@
 <%@page import="database.*"%>
 <%@page import="support.Utils"%>
 <%@page language="java" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <head>
@@ -25,23 +26,15 @@
     </style>
 </head>
 
-<HTML>
-    <TITLE>Tela para upload do arquivo CSV</TITLE>
-
-    <BODY>
-        <FORM ENCTYPE="multipart/form-data" ACTION=
-              "processaUpload.jsp" METHOD=POST>
-            <br><br><br>
-            <center><table border="2" >
-                    <tr><center><td colspan="2"><p align=
-                                                   "center"><B>Fazer upload</B><center></td></tr>
-                            <tr><td><b>Escolha o arquivo para upload:</b>
-                                </td>
-                                <td><INPUT NAME="file" TYPE="file"></td></tr>
-                            <tr><td colspan="2">
-                                    <p align="right"><INPUT TYPE="submit" VALUE="Enviar arquivo" ></p></td></tr>
-                            <table>
-                        </center> 
-                        </FORM>
-                        </BODY>
-                        </HTML>
+<html>
+    <head>
+        <title>Exemplo de Upload</title>
+    </head>
+    <body>
+        <h1>Arquivo a ser upado:</h1>
+        <form action = "processaupload.jsp" method = "POST" enctype = "multipart/form-data">
+            <br/><input type = "file" name = "file" size = "50" />
+            <br/><input type = "submit" value = "Upload File" />
+        </form>
+    </body>
+</html>

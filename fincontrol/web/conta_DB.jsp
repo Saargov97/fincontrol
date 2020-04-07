@@ -1,9 +1,3 @@
-<%-- 
-    Document   : conta_DB
-    Created on : 26/03/2020, 17:50:54
-    Author     : Rafa_
---%>
-
 <%@page import="java.sql.*" %>
 <%@page import="database.ContaCorrenteDB" %>
 <%@page import="entity.ContaCorrente" %>
@@ -15,10 +9,10 @@
 
     String oper = request.getParameter("oper");
     cc.setSeq_conta(request.getParameter("seq"));
-    cc.setSeq_banco(request.getParameter("banco"));
-    cc.setCod_agencia(request.getParameter("agencia"));
-    cc.setNum_cc(request.getParameter("conta"));
-    cc.setInd_tipo_cc(request.getParameter("tipo"));
+    cc.setSeq_banco(request.getParameter("seq_banco"));
+    cc.setCod_agencia(request.getParameter("cod_agencia"));
+    cc.setNum_cc(request.getParameter("num_cc"));
+    cc.setInd_tipo_cc(request.getParameter("ind_tipo_cc"));
     
     if (oper.equals("A")) {
         regra.Alterar(cc);

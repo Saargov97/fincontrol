@@ -23,6 +23,7 @@ public class BancoDB {
                 ResultSet rs = st.executeQuery("SELECT COALESCE(MAX(seq_banco), 0) + 1 seq FROM banco");
                 if (rs.next()) {
                     b.setSeq_banco(rs.getString("seq"));
+                    System.out.println("SEQ: "+rs.getString("seq"));
                 } else {
                     b.setSeq_banco("1");
                 }
