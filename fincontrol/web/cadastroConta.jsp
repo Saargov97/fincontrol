@@ -225,8 +225,8 @@
                                     </div>
                                     <div class="border-top">
                                         <div class="card-body">
-                                            <button class="btn btn-primary" type="submit">Cadastrar</button>
-                                            <a href ="listaUsuario.jsp" class="btn btn-danger">Cancelar</a>
+                                            <button class="btn btn-success" type="submit">Salvar</button>
+                                            <a href ="listaConta.jsp" class="btn btn-danger">Cancelar</a>
                                         </div>
                                     </div>
                                 </form>

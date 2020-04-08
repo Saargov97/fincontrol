@@ -100,6 +100,7 @@
                     <nav class="sidebar-nav">
                         <ul id="sidebarnav" class="p-t-30">
                             <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.jsp" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
+                            <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="tables.jsp" aria-expanded="false"><i class="mdi mdi-border-inside"></i><span class="hide-menu">Tables</span></a>
                             <!--<li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">Cadastros </span></a>
                                 <ul aria-expanded="false" class="collapse  first-level">
                                     <li class="sidebar-item"><a href="cadastroUsuario.jsp" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu"> Usuários </span></a></li>
@@ -110,11 +111,11 @@
                             <!--<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="charts.html" aria-expanded="false"><i class="mdi mdi-chart-bar"></i><span class="hide-menu">Charts</span></a></li>-->
                             <!--<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="widgets.html" aria-expanded="false"><i class="mdi mdi-chart-bubble"></i><span class="hide-menu">Widgets</span></a></li>-->
                             <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">Cadastros </span></a>
-                                <ul aria-expanded="false" class="collapse  first-level">
-                                    <li class="sidebar-item"><a href="listaUsuario.jsp" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu"> Usuários </span></a></li>
-                                    <li class="sidebar-item"><a href="listaBanco.jsp" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> Bancos </span></a></li>
-                                    <li class="sidebar-item"><a href="listaConta.jsp" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> Contas </span></a></li>
-                                </ul>
+                            <ul aria-expanded="false" class="collapse  first-level">
+                                <li class="sidebar-item"><a href="listaUsuario.jsp" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu"> Usuários </span></a></li>
+                                <li class="sidebar-item"><a href="listaBanco.jsp" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> Bancos </span></a></li>
+                                <li class="sidebar-item"><a href="listaConta.jsp" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> Contas </span></a></li>
+                            </ul>
                             </li>
                             <!--<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="grid.html" aria-expanded="false"><i class="mdi mdi-blur-linear"></i><span class="hide-menu">Full Width</span></a></li>-->
                             <!--<li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">Forms </span></a>

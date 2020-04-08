@@ -6,6 +6,9 @@
 <%
     ContaCorrenteDB regra = new ContaCorrenteDB();
     ContaCorrente cc = new ContaCorrente();
+    
+    System.out.println("CODIGO AGENCIA: "+request.getParameter("cod_agencia"));
+    System.out.println("NUMERO CONTA: "+request.getParameter("num_cc"));
 
     String oper = request.getParameter("oper");
     cc.setSeq_conta(request.getParameter("seq"));

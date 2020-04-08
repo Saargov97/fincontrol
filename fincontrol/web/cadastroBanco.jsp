@@ -186,7 +186,7 @@
                                     </div>
                                     <div class="border-top">
                                         <div class="card-body">
-                                            <button type="submit" class="btn btn-primary" >Cadastrar</button>
+                                            <button type="submit" class="btn btn-success" >Salvar</button>
                                             <a href ="listaBanco.jsp" class="btn btn-danger">Cancelar</a>
                                         </div>
                                     </div>

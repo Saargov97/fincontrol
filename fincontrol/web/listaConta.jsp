@@ -26,6 +26,12 @@
     <![endif]-->
     </head>
 
+    <style>    
+        .cabecalho {
+            text-align: center
+        }
+    </style>
+
     <body>
     </div>
     <div id="main-wrapper">
@@ -185,13 +191,15 @@
                         <h5 class="card-title"></h5>
                         <div class="table-responsive">
                             <table id="zero_config" class="table table-striped table-bordered">
-                                <a href="cadastroConta.jsp?oper=I&seq=0" class="btn btn-primary">Novo</a> 
+                                <a href="cadastroConta.jsp?oper=I&seq=0" class="btn btn-success">Novo</a> 
                                 <thead>
                                     <tr>
-                                        <th>Banco</th>
-                                        <th>Agência</th>
-                                        <th>Número da conta</th>
-                                        <th>Tipo da conta</th>
+                                        <th class="cabecalho">Banco</th>
+                                        <th class="cabecalho">Agência</th>
+                                        <th class="cabecalho">Número da conta</th>
+                                        <th class="cabecalho">Tipo da conta</th>
+                                        <th> </th>
+                                        <th> </th>
                                     </tr>
                                 </thead>
                                 <%
@@ -207,10 +215,16 @@
                                 %>
                                 <tbody>
                                     <tr>
-                                        <td><%=rs.getString("nom_banco")%></td>
-                                        <td><%=rs.getString("cod_agencia")%></td>
-                                        <td><%=rs.getString("num_cc")%></td>
-                                        <td><%=rs.getString("des_tipo")%></td>
+                                        <td align="center"><%=rs.getString("nom_banco")%></td>
+                                        <td align="center"><%=rs.getString("cod_agencia")%></td>
+                                        <td align="center"><%=rs.getString("num_cc")%></td>
+                                        <td align="center"><%=rs.getString("des_tipo")%></td>
+                                        <td align="center">
+                                            <a href="cadastroConta.jsp?oper=A&seq=<%=rs.getString("seq_conta")%>&seq_banco=<%=rs.getString("seq_banco")%>&cod_agencia=<%=rs.getString("cod_agencia")%>&num_cc=<%=rs.getString("num_cc")%>&tipo=<%=rs.getString("ind_tipo_cc")%>" class="btn btn-warning">Editar</a>
+                                        </td>
+                                        <td align="center">
+                                            <a href="conta_DB.jsp?oper=E&seq=<%=rs.getString("seq_conta")%>" class="btn btn-danger">Excluir</a>
+                                        </td>
                                     </tr>
                                 </tbody>
                                 <%

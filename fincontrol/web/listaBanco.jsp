@@ -26,6 +26,12 @@
     <![endif]-->
     </head>
 
+    <style>    
+        .cabecalho {
+            text-align: center
+        }
+    </style>
+
     <body>
         <div id="main-wrapper">
             <header class="topbar" data-navbarbg="skin5">
@@ -166,24 +172,31 @@
                             <h5 class="card-title"></h5>
                             <div class="table-responsive">
                                 <table id="zero_config" class="table table-striped table-bordered">
-                                    <a href="cadastroBanco.jsp?oper=I&seq=0" class="btn btn-primary">Novo</a> 
+                                    <a href="cadastroBanco.jsp?oper=I&seq=0" class="btn btn-success">Novo</a> 
                                     <thead>
                                         <tr>
-                                            <th>Código do Banco</th>
-                                            <th>Nome</th>
+                                            <th class="cabecalho">Código do Banco</th>
+                                            <th class="cabecalho">Nome</th>
+                                            <th></th>
+                                            <th></th>
                                         </tr>
                                     </thead>
                                     <%
                                         ConexaoBD conexao = new ConexaoBD();
                                         Statement st = ConexaoBD.getInstance().getConnection().createStatement();
                                         ResultSet rs = st.executeQuery("SELECT * FROM banco WHERE ind_ativo = 'S' ORDER BY cod_banco");
-                                        System.out.println("ALOHA");
                                         while (rs.next()) {
                                     %>
                                     <tbody>
                                         <tr>
-                                            <td><%=rs.getString("cod_banco")%></td>
-                                            <td><%=rs.getString("nom_banco")%></td>
+                                            <td align="center"><%=rs.getString("cod_banco")%></td>
+                                            <td align="center"><%=rs.getString("nom_banco")%></td>
+                                            <td align="center">
+                                                <a href="cadastroBanco.jsp?oper=A&seq=<%=rs.getString("seq_banco")%>&cod_banco=<%=rs.getString("cod_banco")%>&nom_banco=<%=rs.getString("nom_banco")%>" class="btn btn-warning">Editar</a>
+                                            </td>
+                                            <td align="center">
+                                                <a href="banco_DB.jsp?oper=E&seq=<%=rs.getString("seq_banco")%>" class="btn btn-danger">Excluir</a>
+                                            </td>
                                         </tr>
                                     </tbody>
                                     <%

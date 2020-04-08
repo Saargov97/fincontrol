@@ -65,7 +65,7 @@
                                 <div class="col-12">
                                     <div class="form-group">
                                         <div class="p-t-20">
-                                            <button class="btn btn-success float-center" type="submit">Login</button>
+                                            <button class="btn btn-block btn-lg btn-success" type="submit">Login</button>
                                         </div>
                                     </div>
                                 </div>
