@@ -7,8 +7,8 @@
     BancoDB regra = new BancoDB();
     Banco b = new Banco();
 
-    System.out.println("CODIGO: "+request.getParameter("cod_banco"));
-    System.out.println("NOME: "+request.getParameter("nom_banco"));
+    System.out.println("CODIGO BANCO: "+request.getParameter("cod_banco"));
+    System.out.println("NOME BANCO: "+request.getParameter("nom_banco"));
     
     String oper = request.getParameter("oper");
     b.setSeq_banco(request.getParameter("seq"));

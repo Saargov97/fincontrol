@@ -6,6 +6,9 @@
     ConexaoBD conexao = new ConexaoBD();
   
     Statement st = ConexaoBD.getInstance().getConnection().createStatement();;
+    
+    System.out.println("CODIGO USUARIO: "+request.getParameter("cod"));
+    System.out.println("NOME USUARIO: "+request.getParameter("nom_usuario"));
 
     String oper = request.getParameter("oper");
     String codigo = request.getParameter("cod");

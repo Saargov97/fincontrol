@@ -12,9 +12,11 @@
 
     ResultSet rs = st.executeQuery("SELECT * FROM usuario WHERE nom_usuario = '" + login + "' AND des_senha = MD5('" + senha + "')");
     if (rs.next()) {
+        session.setAttribute("cod_usuario", rs.getString("cod_usuario"));
         session.setAttribute("Login", login);
         response.sendRedirect("main.jsp");
     } else {
+        session.setAttribute("cod_usuario", "0");
         session.setAttribute("Login", null);
         session.setAttribute("Falha", "Usuário e/ou senha inválidos. Verifique!");
         response.sendRedirect("index.jsp");
