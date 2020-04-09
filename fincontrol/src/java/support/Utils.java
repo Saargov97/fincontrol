@@ -152,18 +152,22 @@ public class Utils {
     }
 
     public String getSrcImage(HttpServletRequest request) {
-        String src = request.getServletContext().getRealPath("img") + File.separator + "default.jpg";
+        String src = "";
+        String filePath = request.getServletContext().getRealPath("img") + File.separator;
+        File file = new File(filePath);
+        HttpSession session = request.getSession(false);
         try {
-            HttpSession session = request.getSession(false);
-            String filePath = request.getServletContext().getRealPath("img") + File.separator;
-            File file = new File(filePath);
+            byte[] fileContent = FileUtils.readFileToByteArray(new File(request.getServletContext().getRealPath("img") + File.separator + "default.jpg"));
+            String encodedString = Base64.getEncoder().encodeToString(fileContent);
+            src = "data:image/jpg;base64," + encodedString;
+
             File files[] = file.listFiles();
             int i = 0;
             for (int j = files.length; i < j; i++) {
                 File arquivo = files[i];
                 if (arquivo.getName().equals(String.valueOf(session.getAttribute("cod_usuario")) + ".jpg")) {
-                    byte[] fileContent = FileUtils.readFileToByteArray(new File(filePath + "\\" + arquivo.getName()));
-                    String encodedString = Base64.getEncoder().encodeToString(fileContent);
+                    fileContent = FileUtils.readFileToByteArray(new File(filePath + "\\" + arquivo.getName()));
+                    encodedString = Base64.getEncoder().encodeToString(fileContent);
 
                     src = "data:image/jpg;base64," + encodedString;
                 }
