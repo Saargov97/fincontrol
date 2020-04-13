@@ -19,6 +19,7 @@
         <link rel="stylesheet" type="text/css" href="assets/extra-libs/multicheck/multicheck.css">
         <link href="assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
         <link href="dist/css/style.min.css" rel="stylesheet">
+        <link href="dist/css/glyphicon.css" rel="stylesheet">
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -69,15 +70,14 @@
                         <h5 class="card-title"></h5>
                         <div class="table-responsive">
                             <table id="zero_config" class="table table-striped table-bordered">
-                                <a href="cadastroUsuario.jsp?oper=I&cod=0" class="btn btn-success">Novo</a>
+                                <a href="cadastroUsuario.jsp?oper=I&cod=0" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Novo</a>
                                 <thead>
                                     <tr>
                                         <th class="cabecalho">Código</th>
                                         <th class="cabecalho">Login</th>
                                         <th class="cabecalho">Nome</th>
                                         <th class="cabecalho">E-mail</th>
-                                        <th> </th>
-                                        <th> </th>
+                                        <th class="cabecalho">Ações </th>
                                     </tr>
                                 </thead>
                                 <%
@@ -93,10 +93,8 @@
                                         <td align="center"><%=rs.getString("nom_identificacao")%></td>
                                         <td align="center"><%=rs.getString("des_email")%></td>
                                         <td align="center">
-                                            <a href="cadastroUsuario.jsp?oper=A&cod=<%=rs.getString("cod_usuario")%>&nom_usuario=<%=rs.getString("nom_usuario")%>&nom_identificacao=<%=rs.getString("nom_identificacao")%>&des_email=<%=rs.getString("des_email")%>" class="btn btn-warning">Editar</a>
-                                        </td>
-                                        <td align="center">
-                                            <a href="usuario_DB.jsp?oper=E&cod=<%=rs.getString("cod_usuario")%>" class="btn btn-danger">Excluir</a>
+                                            <a href="cadastroUsuario.jsp?oper=A&cod=<%=rs.getString("cod_usuario")%>&nom_usuario=<%=rs.getString("nom_usuario")%>&nom_identificacao=<%=rs.getString("nom_identificacao")%>&des_email=<%=rs.getString("des_email")%>" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span> Editar</a>
+                                            <a href="usuario_DB.jsp?oper=E&cod=<%=rs.getString("cod_usuario")%>" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Excluir</a>
                                         </td>
                                     </tr>
                                 </tbody>

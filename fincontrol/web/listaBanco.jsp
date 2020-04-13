@@ -12,6 +12,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Favicon icon -->
         <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
         <title>Listagem</title>
@@ -19,6 +20,7 @@
         <link rel="stylesheet" type="text/css" href="assets/extra-libs/multicheck/multicheck.css">
         <link href="assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
         <link href="dist/css/style.min.css" rel="stylesheet">
+        <link href="dist/css/glyphicon.css" rel="stylesheet">
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -34,7 +36,7 @@
     </style>
 
     <body>
-        <% 
+        <%
             Utils u = new Utils();
             out.print(u.menu(request));
         %>
@@ -54,13 +56,12 @@
                         <h5 class="card-title"></h5>
                         <div class="table-responsive">
                             <table id="zero_config" class="table table-striped table-bordered">
-                                <a href="cadastroBanco.jsp?oper=I&seq=0" class="btn btn-success">Novo</a> 
+                                <a href="cadastroBanco.jsp?oper=I&seq=0" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Novo</a> 
                                 <thead>
                                     <tr>
                                         <th class="cabecalho">Código do Banco</th>
                                         <th class="cabecalho">Nome</th>
-                                        <th></th>
-                                        <th></th>
+                                        <th class="cabecalho">Ações</th>
                                     </tr>
                                 </thead>
                                 <%
@@ -74,10 +75,8 @@
                                         <td align="center"><%=rs.getString("cod_banco")%></td>
                                         <td align="center"><%=rs.getString("nom_banco")%></td>
                                         <td align="center">
-                                            <a href="cadastroBanco.jsp?oper=A&seq=<%=rs.getString("seq_banco")%>&cod_banco=<%=rs.getString("cod_banco")%>&nom_banco=<%=rs.getString("nom_banco")%>" class="btn btn-warning">Editar</a>
-                                        </td>
-                                        <td align="center">
-                                            <a href="banco_DB.jsp?oper=E&seq=<%=rs.getString("seq_banco")%>" class="btn btn-danger">Excluir</a>
+                                            <a href="cadastroBanco.jsp?oper=A&seq=<%=rs.getString("seq_banco")%>&cod_banco=<%=rs.getString("cod_banco")%>&nom_banco=<%=rs.getString("nom_banco")%>" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span> Editar</a>
+                                            <a href="banco_DB.jsp?oper=E&seq=<%=rs.getString("seq_banco")%>" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Excluir</a>
                                         </td>
                                     </tr>
                                 </tbody>

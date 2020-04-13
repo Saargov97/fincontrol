@@ -19,6 +19,7 @@
         <link rel="stylesheet" type="text/css" href="assets/extra-libs/multicheck/multicheck.css">
         <link href="assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
         <link href="dist/css/style.min.css" rel="stylesheet">
+        <link href="dist/css/glyphicon.css" rel="stylesheet">
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -34,7 +35,7 @@
     </style>
 
     <body>
-        <% 
+        <%
             Utils u = new Utils();
             out.print(u.menu(request));
         %>
@@ -72,15 +73,14 @@
                         <h5 class="card-title"></h5>
                         <div class="table-responsive">
                             <table id="zero_config" class="table table-striped table-bordered">
-                                <a href="cadastroConta.jsp?oper=I&seq=0" class="btn btn-success">Novo</a> 
+                                <a href="cadastroConta.jsp?oper=I&seq=0" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Novo</a> 
                                 <thead>
                                     <tr>
                                         <th class="cabecalho">Banco</th>
                                         <th class="cabecalho">Agência</th>
                                         <th class="cabecalho">Número da conta</th>
                                         <th class="cabecalho">Tipo da conta</th>
-                                        <th> </th>
-                                        <th> </th>
+                                        <th class="cabecalho">Ações </th>
                                     </tr>
                                 </thead>
                                 <%
@@ -101,10 +101,8 @@
                                         <td align="center"><%=rs.getString("num_cc")%></td>
                                         <td align="center"><%=rs.getString("des_tipo")%></td>
                                         <td align="center">
-                                            <a href="cadastroConta.jsp?oper=A&seq=<%=rs.getString("seq_conta")%>&seq_banco=<%=rs.getString("seq_banco")%>&cod_agencia=<%=rs.getString("cod_agencia")%>&num_cc=<%=rs.getString("num_cc")%>&tipo=<%=rs.getString("ind_tipo_cc")%>" class="btn btn-warning">Editar</a>
-                                        </td>
-                                        <td align="center">
-                                            <a href="conta_DB.jsp?oper=E&seq=<%=rs.getString("seq_conta")%>" class="btn btn-danger">Excluir</a>
+                                            <a href="cadastroConta.jsp?oper=A&seq=<%=rs.getString("seq_conta")%>&seq_banco=<%=rs.getString("seq_banco")%>&cod_agencia=<%=rs.getString("cod_agencia")%>&num_cc=<%=rs.getString("num_cc")%>&tipo=<%=rs.getString("ind_tipo_cc")%>" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span> Editar</a>
+                                            <a href="conta_DB.jsp?oper=E&seq=<%=rs.getString("seq_conta")%>" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Excluir</a>
                                         </td>
                                     </tr>
                                 </tbody>
