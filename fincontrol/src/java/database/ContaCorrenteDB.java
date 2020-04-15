@@ -39,7 +39,6 @@ public class ContaCorrenteDB {
     public boolean Alterar(ContaCorrente cc) {
         try {
             Statement st = ConexaoBD.getInstance().getConnection().createStatement();
-
             st.execute("UPDATE conta_corrente "
                     + " SET seq_banco=" + cc.getSeq_banco() + ",cod_agencia=" + cc.getCod_agencia() + ",num_cc='" + cc.getNum_cc() + "',ind_tipo_cc=" + cc.getInd_tipo_cc()
                     + " WHERE seq_conta=" + cc.getSeq_conta() + "");
@@ -57,7 +56,6 @@ public class ContaCorrenteDB {
     private boolean ExclusaoLogica(ContaCorrente cc) {
         try {
             Statement st = ConexaoBD.getInstance().getConnection().createStatement();
-
             st.execute("UPDATE conta_corrente SET ind_ativo ='N' WHERE seq_conta=" + cc.getSeq_conta() + "");
             return true;
         } catch (SQLException e) {
@@ -69,7 +67,6 @@ public class ContaCorrenteDB {
     public boolean ExcluirDefinitivo(ContaCorrente cc) {
         try {
             Statement st = ConexaoBD.getInstance().getConnection().createStatement();
-
             st.execute("DELETE FROM conta_corrente WHERE seq_banco=" + cc.getSeq_conta() + "");
             return true;
         } catch (SQLException e) {

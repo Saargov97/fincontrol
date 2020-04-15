@@ -93,7 +93,7 @@
                                         <td align="center"><%=rs.getString("nom_identificacao")%></td>
                                         <td align="center"><%=rs.getString("des_email")%></td>
                                         <td align="center">
-                                            <a href="cadastroUsuario.jsp?oper=A&cod=<%=rs.getString("cod_usuario")%>&nom_usuario=<%=rs.getString("nom_usuario")%>&nom_identificacao=<%=rs.getString("nom_identificacao")%>&des_email=<%=rs.getString("des_email")%>" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span> Editar</a>
+                                            <a href="cadastroUsuario.jsp?oper=A&cod=<%=rs.getString("cod_usuario")%>&nom_usuario=<%=rs.getString("nom_usuario")%>&nom_identificacao=<%=rs.getString("nom_identificacao")%>&des_email=<%=rs.getString("des_email")%>&des_senha=''" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span> Editar</a>
                                             <a href="usuario_DB.jsp?oper=E&cod=<%=rs.getString("cod_usuario")%>" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Excluir</a>
                                         </td>
                                     </tr>

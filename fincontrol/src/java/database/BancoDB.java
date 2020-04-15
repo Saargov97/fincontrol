@@ -23,7 +23,6 @@ public class BancoDB {
                 ResultSet rs = st.executeQuery("SELECT COALESCE(MAX(seq_banco), 0) + 1 seq FROM banco");
                 if (rs.next()) {
                     b.setSeq_banco(rs.getString("seq"));
-                    System.out.println("SEQ: "+rs.getString("seq"));
                 } else {
                     b.setSeq_banco("1");
                 }
@@ -40,7 +39,6 @@ public class BancoDB {
     public boolean Alterar(Banco b) {
         try {
             Statement st = ConexaoBD.getInstance().getConnection().createStatement();
-
             st.execute("UPDATE banco SET nom_banco='" + b.getNom_banco() + "',cod_banco=" + b.getCod_banco() + " WHERE seq_banco=" + b.getSeq_banco() + "");
             return true;
         } catch (SQLException e) {
@@ -56,7 +54,6 @@ public class BancoDB {
     private boolean ExclusaoLogica(Banco b) {
         try {
             Statement st = ConexaoBD.getInstance().getConnection().createStatement();
-
             st.execute("UPDATE banco SET ind_ativo = 'N' WHERE seq_banco=" + b.getSeq_banco() + "");
             return true;
         } catch (SQLException e) {
@@ -68,7 +65,6 @@ public class BancoDB {
     public boolean ExcluirDefinitivo(Banco b) {
         try {
             Statement st = ConexaoBD.getInstance().getConnection().createStatement();
-
             st.execute("DELETE FROM banco WHERE seq_banco=" + b.getSeq_banco() + "");
             return true;
         } catch (SQLException e) {

@@ -72,14 +72,16 @@
                                             <input type="email" class="form-control" name="des_email" value="<%=request.getParameter("des_email") != null ? request.getParameter("des_email") : ""%>" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1"  required="required">
                                         </div>
                                     </div>
-                                    <% if (!request.getParameter("oper").equals("A")) {%>
                                     <div class="form-group row">
-                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Password: </label>
+                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Senha: </label>
                                         <div class="col-sm-9">
-                                            <input type="password" class="form-control" name="des_senha" value="<%=request.getParameter("des_senha") != null ? request.getParameter("des_senha") : ""%>" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" required="required">
+                                            <% if (!request.getParameter("oper").equals("A")) {%>
+                                            <input type="password" class="form-control" name="des_senha" value="" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" required="required">
+                                            <%} else { %>
+                                            <input type="password" class="form-control" name="des_senha" value="" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" >
+                                            <%}%>
                                         </div>
                                     </div>
-                                    <% }%>
                                 </div>
                                 <div class="border-top">
                                     <div class="card-body">
