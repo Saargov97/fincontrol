@@ -1,4 +1,6 @@
 
+import database.UsuarioDB;
+import entity.Usuario;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -31,8 +33,7 @@ public class Upload extends HttpServlet {
         super();
     }
 
-    protected void doGet(HttpServletRequest request,
-            HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         HttpSession session = request.getSession(false);
         /*Obtem o caminho relatorio da pasta img*/
@@ -53,8 +54,7 @@ public class Upload extends HttpServlet {
         }
     }
 
-    protected void doPost(HttpServletRequest request,
-            HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         File file;
         final int MAX_FILE_SIZE = 5000 * 1024;                 // Maior arquivo permitido
         final int MAX_MEMO_SIZE = 5000 * 1024;                 // Reseva de memoria para manter o arquivo
@@ -65,12 +65,12 @@ public class Upload extends HttpServlet {
         String filePath = context.getInitParameter("file-upload");
         // Qual o tipo do form ???
         String contentType = request.getContentType();
-
         if ((contentType.indexOf("multipart/form-data") >= 0)) {
-
             DiskFileItemFactory factory = new DiskFileItemFactory();
             factory.setSizeThreshold(MAX_MEMO_SIZE);
             factory.setRepository(new File(OUT_FILE_DIR));
+            UsuarioDB regra = new UsuarioDB();
+            Usuario u = new Usuario();
 
             ServletFileUpload upload = new ServletFileUpload(factory);
             upload.setSizeMax(MAX_FILE_SIZE);
@@ -78,32 +78,49 @@ public class Upload extends HttpServlet {
             try {
                 List fileItems = upload.parseRequest(request);
                 Iterator i = fileItems.iterator();
-
                 while (i.hasNext()) {
+                    // System.out.println("next");
                     FileItem fi = (FileItem) i.next();
+                    // System.out.println("fildname: " + fi.getFieldName());
+                    // System.out.println("name: " + fi.getName());
+                    // System.out.println("string: " + fi.getString());
+                    if (fi.getFieldName().equals("cod")) {
+                        u.setCod_usuario(fi.getString());
+                    }
+                    if (fi.getFieldName().equals("nom_identificacao")) {
+                        u.setNom_identificacao(fi.getString());
+                    }
+                    if (fi.getFieldName().equals("nom_usuario")) {
+                        u.setNom_usuario(fi.getString());
+                    }
+                    if (fi.getFieldName().equals("des_email")) {
+                        u.setDes_email(fi.getString());
+                    }
                     if (!fi.isFormField()) {
-
                         String fileName = fi.getName();
-                        //String fieldName = fi.getFieldName();                    
-                        //boolean isInMemory = fi.isInMemory();
-                        //long sizeInBytes = fi.getSize();
+                        if (!fileName.isEmpty()) {
+                            //String fieldName = fi.getFieldName();                    
+                            //boolean isInMemory = fi.isInMemory();
+                            //long sizeInBytes = fi.getSize();
 
-                        if (fileName.lastIndexOf("\\") >= 0) { // o diretório termina em \
-                            file = new File(OUT_FILE_DIR + File.separator + session.getAttribute("cod_usuario") + ".jpg");
-                            System.out.println(OUT_FILE_DIR + File.separator + session.getAttribute("cod_usuario") + ".jpg");
-                        } else {
-                            file = new File(OUT_FILE_DIR + File.separator + session.getAttribute("cod_usuario") + ".jpg");
-                            System.out.println(OUT_FILE_DIR + File.separator + session.getAttribute("cod_usuario") + ".jpg");
+                            if (fileName.lastIndexOf("\\") >= 0) { // o diretório termina em \
+                                file = new File(OUT_FILE_DIR + File.separator + session.getAttribute("cod_usuario") + ".jpg");
+                                //System.out.println(OUT_FILE_DIR + File.separator + session.getAttribute("cod_usuario") + ".jpg");
+                            } else {
+                                file = new File(OUT_FILE_DIR + File.separator + session.getAttribute("cod_usuario") + ".jpg");
+                                //System.out.println(OUT_FILE_DIR + File.separator + session.getAttribute("cod_usuario") + ".jpg");
+                            }
+
+                            fi.write(file);
+                            request.setAttribute("message", "Arquivo carregado com sucesso");
                         }
-
-                        fi.write(file);
-                        request.setAttribute("message", "Arquivo carregado com sucesso");
                     }
                 }
+                regra.Alterar(u);
             } catch (Exception e) {
                 request.setAttribute("message", "Upload de arquivo falhou devido a " + e);
             }
-            request.getRequestDispatcher("/uploadImgPerfil.jsp").forward(request, response);
+            request.getRequestDispatcher("editarPerfil.jsp").forward(request, response);
         }
         /*
     protected void doPost(HttpServletRequest request,
@@ -138,7 +155,7 @@ public class Upload extends HttpServlet {
 
     }
 
-    public String getSrcImage(HttpServletRequest request) throws ServletException, IOException {       
+    public String getSrcImage(HttpServletRequest request) throws ServletException, IOException {
         byte[] fileContent = FileUtils.readFileToByteArray(new File(request.getServletContext().getRealPath("img") + File.separator + "default.jpg"));
         String encodedString = Base64.getEncoder().encodeToString(fileContent);
         String src = "data:image/jpeg;base64," + encodedString;

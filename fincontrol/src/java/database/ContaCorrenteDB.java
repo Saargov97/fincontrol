@@ -28,7 +28,7 @@ public class ContaCorrenteDB {
                 }
             }
             st.execute("INSERT INTO conta_corrente (seq_conta,seq_banco,cod_agencia,num_cc,ind_tipo_cc,cod_usuario,ind_ativo) "
-                    + " VALUES (" + cc.getSeq_conta() + "," + cc.getSeq_banco() + "," + cc.getCod_agencia() + ",'" + cc.getNum_cc() + "'," + cc.getInd_tipo_cc() + ",1,'S')");
+                    + " VALUES (" + cc.getSeq_conta() + "," + cc.getSeq_banco() + "," + cc.getCod_agencia() + ",'" + cc.getNum_cc() + "'," + cc.getInd_tipo_cc() + "," + cc.getCod_usuario() + ",'S')");
             return true;
         } catch (SQLException e) {
             e.printStackTrace();

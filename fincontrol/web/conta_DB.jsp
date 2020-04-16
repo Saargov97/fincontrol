@@ -13,6 +13,8 @@
     cc.setCod_agencia(request.getParameter("cod_agencia"));
     cc.setNum_cc(request.getParameter("num_cc"));
     cc.setInd_tipo_cc(request.getParameter("ind_tipo_cc"));
+    cc.setCod_usuario(String.valueOf(session.getAttribute("cod_usuario")));
+         
     
     if (oper.equals("A")) {
         regra.Alterar(cc);

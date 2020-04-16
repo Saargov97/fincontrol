@@ -40,7 +40,7 @@ public class UsuarioDB {
     public boolean Alterar(Usuario u) {
         try {
             Statement st = ConexaoBD.getInstance().getConnection().createStatement();
-            if (u.getDes_senha() == null || u.getDes_senha().isEmpty() || u.getDes_senha() == "") {
+            if (u.getDes_senha() == null || u.getDes_senha().isEmpty() || u.getDes_senha().equals("")) {
                 st.execute("UPDATE usuario "
                         + " SET nom_usuario='" + u.getNom_usuario() + "',nom_identificacao='" + u.getNom_identificacao() + "',des_email='" + u.getDes_email() + "'"
                         + " WHERE cod_usuario=" + u.getCod_usuario() + "");
@@ -50,6 +50,31 @@ public class UsuarioDB {
                         + " SET nom_usuario='" + u.getNom_usuario() + "',nom_identificacao='" + u.getNom_identificacao() + "',des_senha=md5('" + u.getDes_senha() + "'),des_email='" + u.getDes_email() + "'"
                         + " WHERE cod_usuario=" + u.getCod_usuario() + "");
                 return true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean AlterarSenha(String codUsuario, String senhaAntiga, String novaSenha, String repetirSenha) {
+        try {
+            Statement st = ConexaoBD.getInstance().getConnection().createStatement();
+            if (novaSenha.equals(repetirSenha)) {
+                ResultSet rs = st.executeQuery(""
+                        + " SELECT 1 FROM usuario "
+                        + " WHERE cod_usuario = " + codUsuario
+                        + "   AND des_senha = MD5('" + senhaAntiga + "')");
+                if (rs.next()) {
+                    st.execute("UPDATE usuario "
+                            + " SET des_senha=MD5('" + novaSenha + "') "
+                            + " WHERE cod_usuario=" + codUsuario + "");
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                return false;
             }
         } catch (SQLException e) {
             e.printStackTrace();
