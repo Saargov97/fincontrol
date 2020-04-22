@@ -1,6 +1,5 @@
 <%@page import="java.io.File"%>
 <%
-
                                                 try {
                                                     String filePath = "c:\\temp";
                                                     File file = new File(filePath);
