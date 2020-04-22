@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import support.SendEmail;
 
 /**
  *
@@ -62,13 +63,23 @@ public class UsuarioDB {
             Statement st = ConexaoBD.getInstance().getConnection().createStatement();
             if (novaSenha.equals(repetirSenha)) {
                 ResultSet rs = st.executeQuery(""
-                        + " SELECT 1 FROM usuario "
+                        + " SELECT des_email FROM usuario "
                         + " WHERE cod_usuario = " + codUsuario
                         + "   AND des_senha = MD5('" + senhaAntiga + "')");
                 if (rs.next()) {
+                    String des_email = rs.getString("des_email");
+                    System.out.println("EMAIL: " + des_email) ;
                     st.execute("UPDATE usuario "
                             + " SET des_senha=MD5('" + novaSenha + "') "
                             + " WHERE cod_usuario=" + codUsuario + "");
+                    
+                    System.out.println("ALTERADO");
+                    
+                    SendEmail sm = new SendEmail();
+                    sm.Send("Senha alterada", "Sua senha foi alterada. Caso não tenha sido você entre em contato.", des_email);
+                    
+                    System.out.println("ENVIADO");
+                    
                     return true;
                 } else {
                     return false;
