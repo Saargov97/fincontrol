@@ -20,6 +20,7 @@
         <link href="assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
         <link href="dist/css/style.min.css" rel="stylesheet">
         <link href="dist/css/glyphicon.css" rel="stylesheet">
+        <script src="assets/libs/sweetalert/sweetalert.min.js"></script>
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -35,6 +36,26 @@
     </style>
 
     <body>
+        <script type="text/javascript">
+            function alert_it(numero) {
+                Swal.fire({
+                    title: 'Você tem certeza que deseja excluir esse registro?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Excluir',
+                    cancelButtonText: 'Cancelar',
+                    closeOnConfirm: false,
+                    closeOnCancel: false
+                }).then((result) => {
+                    if (result.value) {
+                        window.location.href = 'conta_DB.jsp?oper=E&seq=' + numero;
+                    }
+                })
+            }
+        </script>
+        
         <%
             Utils u = new Utils();
             out.print(u.menu(request));
@@ -102,7 +123,7 @@
                                         <td align="center"><%=rs.getString("des_tipo")%></td>
                                         <td align="center">
                                             <a href="cadastroConta.jsp?oper=A&seq=<%=rs.getString("seq_conta")%>&seq_banco=<%=rs.getString("seq_banco")%>&cod_agencia=<%=rs.getString("cod_agencia")%>&num_cc=<%=rs.getString("num_cc")%>&tipo=<%=rs.getString("ind_tipo_cc")%>" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span> Editar</a>
-                                            <a href="conta_DB.jsp?oper=E&seq=<%=rs.getString("seq_conta")%>" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Excluir</a>
+                                            <a class="btn btn-danger" href='javascript:;' onclick = "alert_it(<%=rs.getString("seq_conta")%>)"><span class="glyphicon glyphicon-trash"></span> Excluir</a>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -111,7 +132,6 @@
                                 %>
                             </table>
                         </div>
-
                     </div>
                 </div>
             </div>

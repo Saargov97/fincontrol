@@ -20,6 +20,7 @@
         <link href="assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
         <link href="dist/css/style.min.css" rel="stylesheet">
         <link href="dist/css/glyphicon.css" rel="stylesheet">
+        <script src="assets/libs/sweetalert/sweetalert.min.js"></script>
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -35,6 +36,26 @@
     </style>
 
     <body>
+        <script type="text/javascript">
+            function alert_it(numero) {
+                Swal.fire({
+                    title: 'Você tem certeza que deseja excluir esse registro?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Excluir',
+                    cancelButtonText: 'Cancelar',
+                    closeOnConfirm: false,
+                    closeOnCancel: false
+                }).then((result) => {
+                    if (result.value) {
+                        window.location.href = 'usuario_DB.jsp?oper=E&cod='+numero;
+                    }
+                })
+            }
+        </script>
+
         <%
             Utils u = new Utils();
             out.print(u.menu(request));
@@ -94,7 +115,7 @@
                                         <td align="center"><%=rs.getString("des_email")%></td>
                                         <td align="center">
                                             <a href="cadastroUsuario.jsp?oper=A&cod=<%=rs.getString("cod_usuario")%>&nom_usuario=<%=rs.getString("nom_usuario")%>&nom_identificacao=<%=rs.getString("nom_identificacao")%>&des_email=<%=rs.getString("des_email")%>&des_senha=''" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span> Editar</a>
-                                            <a href="usuario_DB.jsp?oper=E&cod=<%=rs.getString("cod_usuario")%>" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Excluir</a>
+                                            <a class="btn btn-danger" href='javascript:;' onclick = "alert_it(<%=rs.getString("cod_usuario")%>)"><span class="glyphicon glyphicon-trash"></span> Excluir</a>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -103,14 +124,12 @@
                                 %>
                             </table>
                         </div>
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 
 </body>
 

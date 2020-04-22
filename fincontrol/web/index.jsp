@@ -14,6 +14,7 @@
         <!-- Custom CSS -->
         <link href="dist/css/style.min.css" rel="stylesheet">
         <link href="dist/css/glyphicon.css" rel="stylesheet">
+        <link href="dist/css/sweetalert.min.css" rel="stylesheet">
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -24,8 +25,8 @@
 
     <body>
         <%
-        String chave = (String) session.getAttribute("Login");
-        if (chave == null) {
+            String chave = (String) session.getAttribute("Login");
+            if (chave == null) {
         %>
         <div class="main-wrapper">
             <div class="auth-wrapper d-flex no-block justify-content-center align-items-center bg-dark">
@@ -51,8 +52,8 @@
                                         <input type="password" class="form-control form-control-lg" name="des_senha" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" required="">
                                     </div>
                                     <%
-                                    String falha = (String) session.getAttribute("Falha");
-                                    if (falha != null) {
+                                        String falha = (String) session.getAttribute("Falha");
+                                        if (falha != null) {
                                     %>
                                     <div class="alert alert-danger" role="alert">
                                         <%=falha%>
@@ -82,9 +83,8 @@
         <script src="assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
     </body>
     <%
-    } else {
-        response.sendRedirect("main.jsp");
-    }
+        } else {
+            response.sendRedirect("main.jsp");
+        }
     %>
-
 </html>

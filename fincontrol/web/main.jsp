@@ -29,10 +29,11 @@
     </head>
 
     <body>
-        <% 
+        <%
             Utils u = new Utils();
             out.print(u.menu(request));
         %>
+   
         <div class="page-wrapper">
             <div class="page-breadcrumb">
                 <div class="row">
