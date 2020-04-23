@@ -7,10 +7,10 @@ import java.util.Properties;
 
 public class SendEmail {
 
-    public void Send(String titulo, String msg, String destinatarios) {
+    final String username = "fincontrol.project@gmail.com";
+    final String password = "hyrbiolhfqfvnoat";
 
-        final String username = "saargov97@gmail.com";
-        final String password = "nojxidrbjsveipmj";
+    public void Send(String titulo, String msg, String destinatarios) {
 
         Properties prop = new Properties();
         prop.put("mail.smtp.host", "smtp.gmail.com");
@@ -26,7 +26,7 @@ public class SendEmail {
 
         try {
             Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress("saargov97@gmail.com"));
+            message.setFrom(new InternetAddress("fincontrol.project@gmail.com"));
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(destinatarios));
             message.setSubject(titulo);
             message.setText(msg);
@@ -38,9 +38,6 @@ public class SendEmail {
     }
 
     public void SendSLL(String titulo, String msg, String destinatarios) {
-
-        final String username = "saargov97@gmail.com";
-        final String password = "nojxidrbjsveipmj";
 
         Properties prop = new Properties();
         prop.put("mail.smtp.host", "smtp.gmail.com");
@@ -56,9 +53,8 @@ public class SendEmail {
         });
 
         try {
-
             Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress("saargov97@gmail.com"));
+            message.setFrom(new InternetAddress("fincontrol.project@gmail.com"));
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(destinatarios));
             message.setSubject(titulo);
             message.setText(msg);
