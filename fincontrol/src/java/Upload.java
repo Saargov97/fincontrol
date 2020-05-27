@@ -5,7 +5,6 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
-import static java.lang.System.out;
 import java.util.Base64;
 import java.util.Iterator;
 import java.util.List;

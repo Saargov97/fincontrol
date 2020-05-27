@@ -1,22 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package support;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.Base64;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.apache.commons.io.FileUtils;
 
-/**
- *
- * @author Rafa_
- */
 public class Utils {
 
     public String importar() {
@@ -133,7 +123,6 @@ public class Utils {
                 + "                <div class=\"scroll-sidebar\">\n"
                 + "                    <nav class=\"sidebar-nav\">\n"
                 + "                        <ul id=\"sidebarnav\" class=\"p-t-30\">\n"
-                + "                            <li class=\"sidebar-item\"> <a class=\"sidebar-link waves-effect waves-dark sidebar-link\" href=\"index.jsp\" aria-expanded=\"false\"><i class=\"mdi mdi-view-dashboard\"></i><span class=\"hide-menu\">Dashboard</span></a></li>\n"
                 + "                            <li class=\"sidebar-item\"> <a class=\"sidebar-link has-arrow waves-effect waves-dark\" href=\"javascript:void(0)\" aria-expanded=\"false\"><i class=\"mdi mdi-receipt\"></i><span class=\"hide-menu\">Cadastros </span></a>\n"
                 + "                                <ul aria-expanded=\"false\" class=\"collapse  first-level\">\n"
                 + "                                    <li class=\"sidebar-item\"><a href=\"listaUsuario.jsp\" class=\"sidebar-link\"><i class=\"mdi mdi-note-outline\"></i><span class=\"hide-menu\"> Usuários </span></a></li>\n"
@@ -141,14 +130,12 @@ public class Utils {
                 + "                                    <li class=\"sidebar-item\"><a href=\"listaConta.jsp\" class=\"sidebar-link\"><i class=\"mdi mdi-note-plus\"></i><span class=\"hide-menu\"> Contas </span></a></li>\n"
                 + "                                </ul>\n"
                 + "                            </li>\n"
-                + "                            <li class=\"sidebar-item\"> <a class=\"sidebar-link waves-effect waves-dark sidebar-link\" href=\"javascript:void(0)\" aria-expanded=\"false\"><i class=\"mdi mdi-border-inside\"></i><span class=\"hide-menu\">Relatórios</span></a></li>\n"
                 + "                        </ul>\n"
                 + "                    </nav>\n"
                 + "                </div>\n"
                 + "            </aside>\n";
-//"        </div>";
     }
-    
+
     public String getImgPerfil(HttpServletRequest request) {
         return "<img src=\"" + getSrcImage(request) + "\" alt=\"user\" class=\"rounded-circle\" width=\"64\">";
     }

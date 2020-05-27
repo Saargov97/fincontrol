@@ -1,11 +1,6 @@
 package database;
 
-/**
- *
- * @author gabriel.frantz
- */
 import java.sql.*;
-import java.util.*;
 
 public class ConexaoBD {
 
