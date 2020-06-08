@@ -27,11 +27,41 @@ public class BancoDB {
         }
     }
 
+    public boolean ConsultaInserir(Banco b) {
+        try {
+            Statement st = ConexaoBD.getInstance().getConnection().createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM banco WHERE seq_banco=" + b.getSeq_banco() + "");
+            if (rs.next()) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
     public boolean Alterar(Banco b) {
         try {
             Statement st = ConexaoBD.getInstance().getConnection().createStatement();
             st.execute("UPDATE banco SET nom_banco='" + b.getNom_banco() + "',cod_banco=" + b.getCod_banco() + " WHERE seq_banco=" + b.getSeq_banco() + "");
             return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean ConsultaAlterar(Banco b) {
+        try {
+            Statement st = ConexaoBD.getInstance().getConnection().createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM banco WHERE cod_banco = '789' AND nom_banco = 'TESTE 2 - NÃO UTILIZAR'");
+            if (rs.next()) {
+                return true;
+            } else {
+                return false;
+            }
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
@@ -53,6 +83,21 @@ public class BancoDB {
         }
     }
 
+    public boolean ConsultaExclusaoLogica(Banco b) {
+        try {
+            Statement st = ConexaoBD.getInstance().getConnection().createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM banco WHERE seq_banco =" + b.getSeq_banco() + " AND ind_ativo = 'N'");
+            if (rs.next()) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
     public boolean ExcluirDefinitivo(Banco b) {
         try {
             Statement st = ConexaoBD.getInstance().getConnection().createStatement();
@@ -64,4 +109,18 @@ public class BancoDB {
         }
     }
 
+    public boolean ConsultaExclusaoDefinitiva(Banco b) {
+        try {
+            Statement st = ConexaoBD.getInstance().getConnection().createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM banco WHERE seq_banco=" + b.getSeq_banco() + "");
+            if (rs.next()) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

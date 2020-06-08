@@ -19,9 +19,40 @@ public class UsuarioDB {
                     u.setCod_usuario("1");
                 }
             }
-            st.execute("INSERT INTO usuario (cod_usuario,nom_usuario,nom_identificacao,des_senha,ind_ativo,des_email) "
-                    + " VALUES (" + u.getCod_usuario() + ",'" + u.getNom_usuario() + "','" + u.getNom_identificacao() + "',md5('" + u.getDes_senha() + "'),'S','" + u.getDes_email() + "')");
+            if (!validInsertUser(u.getNom_usuario(), u.getDes_email())) {
+                st.execute("INSERT INTO usuario (cod_usuario,nom_usuario,nom_identificacao,des_senha,ind_ativo,des_email) "
+                        + " VALUES (" + u.getCod_usuario() + ",'" + u.getNom_usuario() + "','" + u.getNom_identificacao() + "',md5('" + u.getDes_senha() + "'),'S','" + u.getDes_email() + "')");
+                return true;
+            } else {
+                return false;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean validInsertUser(String nom_usuario, String des_email) throws SQLException {
+
+        Statement st = ConexaoBD.getInstance().getConnection().createStatement();
+
+        ResultSet rs = st.executeQuery("SELECT * FROM usuario WHERE nom_usuario = '" + nom_usuario + "' OR des_email = '" + des_email + "'");
+        if (rs.next()) {
             return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean ConsultaInserir(Usuario u) {
+        try {
+            Statement st = ConexaoBD.getInstance().getConnection().createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM usuario WHERE cod_usuario=" + u.getCod_usuario() + "");
+            if (rs.next()) {
+                return true;
+            } else {
+                return false;
+            }
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
@@ -48,6 +79,21 @@ public class UsuarioDB {
         }
     }
 
+    public boolean ConsultaAlterar(Usuario u) {
+        try {
+            Statement st = ConexaoBD.getInstance().getConnection().createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM usuario WHERE nom_usuario = 'usertest2' AND nom_identificacao = 'User Test 2' AND des_email = 'usertest2@gmail.com'");
+            if (rs.next()) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
     public boolean AlterarSenha(String codUsuario, String senhaAntiga, String novaSenha, String repetirSenha) {
         try {
             Statement st = ConexaoBD.getInstance().getConnection().createStatement();
@@ -58,18 +104,18 @@ public class UsuarioDB {
                         + "   AND des_senha = MD5('" + senhaAntiga + "')");
                 if (rs.next()) {
                     String des_email = rs.getString("des_email");
-                    System.out.println("EMAIL: " + des_email) ;
+                    System.out.println("EMAIL: " + des_email);
                     st.execute("UPDATE usuario "
                             + " SET des_senha=MD5('" + novaSenha + "') "
                             + " WHERE cod_usuario=" + codUsuario + "");
-                    
+
                     System.out.println("ALTERADO");
-                    
+
                     SendEmail sm = new SendEmail();
                     sm.Send("Senha alterada", "Sua senha foi alterada. Caso não tenha sido você entre em contato.", des_email);
-                    
+
                     System.out.println("ENVIADO");
-                    
+
                     return true;
                 } else {
                     return false;
@@ -98,11 +144,41 @@ public class UsuarioDB {
         }
     }
 
+    public boolean ConsultaExclusaoLogica(Usuario u) {
+        try {
+            Statement st = ConexaoBD.getInstance().getConnection().createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM usuario WHERE cod_usuario=" + u.getCod_usuario() + " AND ind_ativo = 'N'");
+            if (rs.next()) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
     public boolean ExcluirDefinitivo(Usuario u) {
         try {
             Statement st = ConexaoBD.getInstance().getConnection().createStatement();
             st.execute("DELETE FROM usuario WHERE cod_usuario=" + u.getCod_usuario() + "");
             return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean ConsultaExclusaoDefinitiva(Usuario u) {
+        try {
+            Statement st = ConexaoBD.getInstance().getConnection().createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM usuario WHERE cod_usuario=" + u.getCod_usuario() + "");
+            if (rs.next()) {
+                return true;
+            } else {
+                return false;
+            }
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
