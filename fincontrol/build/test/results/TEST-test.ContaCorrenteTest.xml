@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="FRANTZ" name="test.ContaCorrenteTest" skipped="0" tests="10" time="0.179" timestamp="2020-06-13T22:05:01">
+<testsuite errors="0" failures="0" hostname="FRANTZ" name="test.ContaCorrenteTest" skipped="0" tests="10" time="0.176" timestamp="2020-06-13T22:53:28">
   <properties>
     <property name="libs.jsp-compiler.javadoc" value="" />
     <property name="netbeans.autoupdate.country" value="BR" />
@@ -58,7 +58,7 @@
     <property name="libs.jsf12.javadoc" value="C:\Program Files\NetBeans-11.2\netbeans\enterprise\docs\javaee-doc-api.jar" />
     <property name="libs.Comet-GlassFish-v3.javadoc" value="" />
     <property name="libs.spring-webmvc3.0.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner test.ContaCorrenteTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Gabriel Frantz\Documents\NetBeansProjects\fincontrol\fincontrol\build\test\results\TEST-test.ContaCorrenteTest.xml crashfile=C:\Users\Gabriel Frantz\Documents\NetBeansProjects\fincontrol\fincontrol\build\junitvmwatcher8488026944262501063.properties propsfile=C:\Users\Gabriel Frantz\Documents\NetBeansProjects\fincontrol\fincontrol\build\junit6730027783809108640.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner test.ContaCorrenteTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Gabriel Frantz\Documents\NetBeansProjects\fincontrol\fincontrol\build\test\results\TEST-test.ContaCorrenteTest.xml crashfile=C:\Users\Gabriel Frantz\Documents\NetBeansProjects\fincontrol\fincontrol\build\junitvmwatcher4132206065534328322.properties propsfile=C:\Users\Gabriel Frantz\Documents\NetBeansProjects\fincontrol\fincontrol\build\junit2661405600831486240.properties" />
     <property name="build.classes.dir" value="build/web/WEB-INF/classes" />
     <property name="ap.supported.internal" value="true" />
     <property name="libs.EclipseLink-GlassFish-v5.src" value="" />
@@ -301,7 +301,7 @@
     <property name="libs.eclipselinkmodelgen.javadoc" value="" />
     <property name="libs.metro.javadoc" value="C:\Program Files\NetBeans-11.2\netbeans\enterprise\docs\webservices-api-javadoc.jar;C:\Program Files\NetBeans-11.2\netbeans\enterprise\docs\webservices-extra-javadoc.jar;C:\Program Files\NetBeans-11.2\netbeans\enterprise\docs\webservices-extra-api-javadoc.jar;C:\Program Files\NetBeans-11.2\netbeans\enterprise\docs\webservices-rt-javadoc.jar;C:\Program Files\NetBeans-11.2\netbeans\enterprise\docs\webservices-tools-javadoc.jar" />
     <property name="libs.struts.maven-pom" value="" />
-    <property name="jnidispatch.path" value="C:\Users\GABRIE~1\AppData\Local\Temp\jna--489797639\jna4768944049331743676.dll" />
+    <property name="jnidispatch.path" value="C:\Users\GABRIE~1\AppData\Local\Temp\jna--489797639\jna1660720602502407129.dll" />
     <property name="netbeans.home+have.tests" value="true" />
     <property name="libs.testng.maven-pom" value="" />
     <property name="libs.jaxb.src" value="" />
@@ -426,16 +426,16 @@
     <property name="war.ear.name" value="fincontrol.war" />
     <property name="libs.javaee-web-api-7.0.javadoc" value="C:\Program Files\NetBeans-11.2\netbeans\enterprise\docs\javaee-doc-api.jar" />
   </properties>
-  <testcase classname="test.ContaCorrenteTest" name="test10consultaExclusaoDefinitivaContaCorrenteTest" time="0.117" />
-  <testcase classname="test.ContaCorrenteTest" name="test1consultaTableContaCorrenteTest" time="0.006" />
+  <testcase classname="test.ContaCorrenteTest" name="test10consultaExclusaoDefinitivaContaCorrenteTest" time="0.111" />
+  <testcase classname="test.ContaCorrenteTest" name="test1consultaTableContaCorrenteTest" time="0.007" />
   <testcase classname="test.ContaCorrenteTest" name="test2consultaTableTipoContaTest" time="0.001" />
-  <testcase classname="test.ContaCorrenteTest" name="test3insertContaCorrenteTest" time="0.004" />
-  <testcase classname="test.ContaCorrenteTest" name="test4consultaInsertContaCorrenteTest" time="0.001" />
-  <testcase classname="test.ContaCorrenteTest" name="test5updateContaCorrenteTest" time="0.001" />
+  <testcase classname="test.ContaCorrenteTest" name="test3insertContaCorrenteTest" time="0.003" />
+  <testcase classname="test.ContaCorrenteTest" name="test4consultaInsertContaCorrenteTest" time="0.0" />
+  <testcase classname="test.ContaCorrenteTest" name="test5updateContaCorrenteTest" time="0.0" />
   <testcase classname="test.ContaCorrenteTest" name="test6consultaUpdateContaCorrenteTest" time="0.001" />
-  <testcase classname="test.ContaCorrenteTest" name="test7deleteContaCorrenteTest" time="0.001" />
+  <testcase classname="test.ContaCorrenteTest" name="test7deleteContaCorrenteTest" time="0.0" />
   <testcase classname="test.ContaCorrenteTest" name="test8consultaExclusaoLogicaContaCorrenteTest" time="0.0" />
-  <testcase classname="test.ContaCorrenteTest" name="test9clearContaCorrenteTest" time="0.001" />
+  <testcase classname="test.ContaCorrenteTest" name="test9clearContaCorrenteTest" time="0.0" />
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
