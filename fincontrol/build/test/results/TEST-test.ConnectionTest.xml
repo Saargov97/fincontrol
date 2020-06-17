@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="Rafael-PC" name="test.ConnectionTest" skipped="0" tests="1" time="0.435" timestamp="2020-06-17T22:48:16">
+<testsuite errors="0" failures="0" hostname="Rafael-PC" name="test.ConnectionTest" skipped="0" tests="1" time="0.478" timestamp="2020-06-17T22:50:59">
   <properties>
     <property name="libs.jsp-compiler.javadoc" value="" />
     <property name="netbeans.autoupdate.country" value="BR" />
@@ -58,7 +58,7 @@
     <property name="libs.jsf12.javadoc" value="C:\Program Files\NetBeans-11.2\netbeans\enterprise\docs\javaee-doc-api.jar" />
     <property name="libs.Comet-GlassFish-v3.javadoc" value="" />
     <property name="libs.spring-webmvc3.0.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner test.ConnectionTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Rafa_\OneDrive\Documentos\GitHub\fincontrol\fincontrol\build\test\results\TEST-test.ConnectionTest.xml crashfile=C:\Users\Rafa_\OneDrive\Documentos\GitHub\fincontrol\fincontrol\build\junitvmwatcher3271673329477416037.properties propsfile=C:\Users\Rafa_\OneDrive\Documentos\GitHub\fincontrol\fincontrol\build\junit8323384966675424862.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner test.ConnectionTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Rafa_\OneDrive\Documentos\GitHub\fincontrol\fincontrol\build\test\results\TEST-test.ConnectionTest.xml crashfile=C:\Users\Rafa_\OneDrive\Documentos\GitHub\fincontrol\fincontrol\build\junitvmwatcher4306134622661028275.properties propsfile=C:\Users\Rafa_\OneDrive\Documentos\GitHub\fincontrol\fincontrol\build\junit1346180559072457801.properties" />
     <property name="build.classes.dir" value="build/web/WEB-INF/classes" />
     <property name="ap.supported.internal" value="true" />
     <property name="libs.EclipseLink-GlassFish-v5.src" value="" />
@@ -84,6 +84,7 @@
     <property name="build.compiler.emacs" value="true" />
     <property name="libs.javaee-web-api-6.0.src" value="" />
     <property name="libs.jsp-compilation-syscp.classpath" value="C:\Program Files\NetBeans-11.2\netbeans\extide\ant\lib\ant.jar;C:\Program Files\NetBeans-11.2\netbeans\enterprise\modules\ext\servlet3.1-jsp2.3-api.jar;C:\Program Files\NetBeans-11.2\netbeans\enterprise\modules\ext\glassfish-jspparser-4.0.jar;C:\Program Files\NetBeans-11.2\netbeans\enterprise\modules\ext\jstl-impl.jar;C:\Program Files\NetBeans-11.2\netbeans\enterprise\modules\ext\jsf-2_2\javax.faces.jar" />
+    <property name="nu.validator.checker.imageCandidateString.hasWidth" value="0" />
     <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_60\jre\lib\endorsed" />
     <property name="libs.Comet-GlassFish-v3.maven-pom" value="" />
     <property name="libs.groovy-all.src" value="" />
@@ -429,7 +430,7 @@
     <property name="war.ear.name" value="fincontrol.war" />
     <property name="libs.javaee-web-api-7.0.javadoc" value="C:\Program Files\NetBeans-11.2\netbeans\enterprise\docs\javaee-doc-api.jar" />
   </properties>
-  <testcase classname="test.ConnectionTest" name="connectionTest" time="0.326" />
+  <testcase classname="test.ConnectionTest" name="connectionTest" time="0.383" />
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
